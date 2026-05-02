@@ -5,172 +5,237 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>TOO MUCH. – Interaktives Selbsthilfe-Workbook | RE:BELLE™ Media</title>
-  <meta name="description" content="TOO MUCH. ist ein interaktives Selbsthilfe-Workbook für Klarheit, Selbstkontakt und radikale Ehrlichkeit. Kein Coaching-Blabla. Ein Spiegel." />
+  <meta name="description" content="TOO MUCH. ist ein interaktives Selbsthilfe-Workbook für Gedanken, die zu laut wurden. Keine fachliche Hilfe. Nur ehrliche Selbstreflexion." />
 
   <meta property="og:title" content="TOO MUCH. – Interaktives Selbsthilfe-Workbook" />
-  <meta property="og:description" content="Du funktionierst noch. Aber dein System ist längst überlastet. Dieses Workbook ist kein Ratgeber. Es ist ein Spiegel." />
+  <meta property="og:description" content="Ein Denkraum für Gedanken, die du nicht mehr wegschiebst." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://quiet.rebellemedia.de/too-much" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&family=Rock+Salt&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="#page-1" class="brand">RE:BELLE™ Media</a>
-    <nav>
-      <a href="#page-3">Check-in</a>
-      <a href="#page-5">Prompts</a>
-      <a href="#page-8">Abschluss</a>
-    </nav>
+  <header class="topbar">
+    <a href="#start" class="brand">RE:BELLE™ Media</a>
+    <span class="top-note">TOO MUCH.</span>
   </header>
 
   <main>
 
-    <section id="page-1" class="workbook-screen hero-screen">
-      <div class="content hero-content">
-        <p class="eyebrow">Interaktives Selbsthilfe-Workbook</p>
-        <h1>TOO<br />MUCH.</h1>
-        <p class="hero-subline">Du funktionierst noch.<br />Aber dein System ist längst überlastet.</p>
-        <p class="body-text">
-          Kein Ratgeber. Kein Coaching-Blabla.  
-          Ein digitaler Spiegel für Gedanken, die zu laut wurden.
+    <section id="start" class="screen hero bg-hero">
+      <div class="inner hero-inner">
+        <p class="kicker">Interaktives Selbsthilfe-Workbook</p>
+        <h1>TOO MUCH.</h1>
+        <p class="claim">Ein Denkraum für Gedanken, die du nicht mehr wegschiebst.</p>
+        <p class="intro">
+          Keine fachliche Hilfe. Keine Diagnose. Kein Coaching-Blabla.
+          Nur Fragen, die dich kurz anhalten lassen.
         </p>
-        <a href="#page-2" class="button">Workbook starten</a>
+        <a href="#page-1" class="btn">Beginnen</a>
       </div>
     </section>
 
-    <section id="page-2" class="workbook-screen body-screen">
-      <div class="content narrow">
-        <p class="page-number">01</p>
-        <h2>Du brauchst kein neues Mindset.</h2>
-        <p class="body-text">
-          Du brauchst einen Ort, an dem du aufhören darfst, dich selbst schönzureden.
-        </p>
-        <p class="body-text">
-          Hier geht es nicht darum, besser zu wirken.
-          Es geht darum, ehrlicher zu werden.
-        </p>
-        <a href="#page-3" class="button ghost">Weiter</a>
-      </div>
-    </section>
-
-    <section id="page-3" class="workbook-screen stairs-screen">
-      <div class="content card">
-        <p class="eyebrow">Mini-Check-in</p>
-        <h2>Was ist gerade wirklich los?</h2>
-        <p class="body-text">
-          Schreib einen Satz. Nicht perfekt. Nicht klug.
-          Nur ehrlich genug, dass er dich trifft.
+    <section id="page-1" class="screen bg-body">
+      <div class="inner workbook-card">
+        <p class="progress">01 / 08</p>
+        <h2>Ankommen.</h2>
+        <p class="lead">
+          Du musst gerade nichts lösen. Du musst nur bemerken, was in dir laut geworden ist.
         </p>
 
-        <label for="clarityInput">Dein Satz</label>
-        <textarea id="clarityInput" placeholder="Ich merke gerade, dass ..."></textarea>
+        <div class="question-block">
+          <label for="q1a">Was ist der erste Satz, der in deinem Kopf auftaucht?</label>
+          <textarea id="q1a" placeholder="Ich merke gerade ..."></textarea>
 
-        <button class="button full" id="clarityButton">Spiegel anzeigen</button>
-        <div id="clarityOutput" class="output-box">Dein Spiegel erscheint hier.</div>
-
-        <a href="#page-4" class="next-link">Weiter zur nächsten Seite</a>
-      </div>
-    </section>
-
-    <section id="page-4" class="workbook-screen face-screen">
-      <div class="content narrow right">
-        <p class="page-number">02</p>
-        <h2>Du weißt es schon.</h2>
-        <p class="body-text">
-          Du brauchst keine neue Antwort.
-          Du brauchst den Moment, in dem du aufhörst, dir selbst auszuweichen.
-        </p>
-        <button class="button ghost" id="faceButton">Sag es mir direkt</button>
-        <div id="faceOutput" class="output-box hidden"></div>
-        <a href="#page-5" class="next-link">Weiter</a>
-      </div>
-    </section>
-
-    <section id="page-5" class="workbook-screen hero-soft-screen">
-      <div class="content wide">
-        <p class="eyebrow">Interaktive Prompts</p>
-        <h2>Wähle, was gerade am lautesten ist.</h2>
-
-        <div class="prompt-grid">
-          <button class="prompt-card" data-answer="Dann beginne nicht mit Lösung. Beginne mit Benennung. Was genau ist zu viel?">
-            Ich bin überfordert.
-          </button>
-
-          <button class="prompt-card" data-answer="Dann frag nicht: Was stimmt nicht mit mir? Frag: Was versuche ich gerade auszuhalten?">
-            Ich reagiere zu stark.
-          </button>
-
-          <button class="prompt-card" data-answer="Dann hör auf, dich zu optimieren. Such den Moment, in dem du dich selbst verlassen hast.">
-            Ich fühle mich nicht wie ich.
-          </button>
-
-          <button class="prompt-card" data-answer="Dann setz eine Grenze ohne Roman. Ein Nein braucht keine PowerPoint-Präsentation.">
-            Ich will meine Energie schützen.
-          </button>
+          <label for="q1b">Was versuchst du dabei zu kontrollieren?</label>
+          <textarea id="q1b" placeholder="Ich versuche ..."></textarea>
         </div>
 
-        <div id="promptOutput" class="output-box">Klick einen Satz. Die Seite antwortet.</div>
-        <a href="#page-6" class="next-link">Weiter</a>
+        <button class="btn full" data-reflect="q1a,q1b" data-output="out1">Spiegel öffnen</button>
+        <div id="out1" class="mirror">Dein Spiegel erscheint hier.</div>
+
+        <a href="#page-2" class="next">Weiter denken</a>
       </div>
     </section>
 
-    <section id="page-6" class="workbook-screen body-dark-screen">
-      <div class="content card">
-        <p class="page-number">03</p>
+    <section id="page-2" class="screen bg-stairs">
+      <div class="inner workbook-card">
+        <p class="progress">02 / 08</p>
+        <h2>Der Lärm im Kopf.</h2>
+        <p class="lead">
+          Nicht alles ist zu viel. Manches ist nur zu lange ungeordnet geblieben.
+        </p>
+
+        <div class="question-block">
+          <label for="q2a">Was denkst du gerade in Schleife?</label>
+          <textarea id="q2a" placeholder="Immer wieder denke ich ..."></textarea>
+
+          <label for="q2b">Was davon ist wirklich relevant?</label>
+          <textarea id="q2b" placeholder="Wirklich wichtig ist ..."></textarea>
+
+          <label for="q2c">Was fühlt sich nur dringend an?</label>
+          <textarea id="q2c" placeholder="Nur dringend fühlt sich an ..."></textarea>
+        </div>
+
+        <button class="btn full" data-reflect="q2a,q2b,q2c" data-output="out2">Den Kern sehen</button>
+        <div id="out2" class="mirror">Du bist nicht chaotisch. Du hältst nur zu viele offene Enden gleichzeitig.</div>
+
+        <a href="#page-3" class="next">Weiter denken</a>
+      </div>
+    </section>
+
+    <section id="page-3" class="screen bg-hero soft">
+      <div class="inner workbook-card">
+        <p class="progress">03 / 08</p>
+        <h2>Was ist wirklich zu viel?</h2>
+        <p class="lead">
+          Zu viel ist selten alles. Zu viel ist oft ein einziger Punkt, der keinen Platz bekommen hat.
+        </p>
+
+        <div class="question-block">
+          <label for="q3a">Was zieht gerade am meisten Energie?</label>
+          <textarea id="q3a" placeholder="Am meisten Energie zieht ..."></textarea>
+
+          <label for="q3b">Was würdest du sofort streichen, wenn niemand zuschaut?</label>
+          <textarea id="q3b" placeholder="Ich würde streichen ..."></textarea>
+
+          <label for="q3c">Was lässt du stehen, obwohl du es längst hinterfragst?</label>
+          <textarea id="q3c" placeholder="Ich lasse noch stehen ..."></textarea>
+        </div>
+
+        <button class="btn full" data-reflect="q3a,q3b,q3c" data-output="out3">Ehrlich werden</button>
+        <div id="out3" class="mirror">Du bist nicht überfordert. Du bist an den falschen Stellen noch zu loyal.</div>
+
+        <a href="#page-4" class="next">Weiter denken</a>
+      </div>
+    </section>
+
+    <section id="page-4" class="screen bg-body dark">
+      <div class="inner workbook-card">
+        <p class="progress">04 / 08</p>
+        <h2>Was davon gehört nicht dir?</h2>
+        <p class="lead">
+          Nicht alles, was du trägst, gehört in deine Hände.
+        </p>
+
+        <div class="question-block">
+          <label for="q4a">Für wen hältst du gerade etwas aufrecht?</label>
+          <textarea id="q4a" placeholder="Ich halte gerade aufrecht ..."></textarea>
+
+          <label for="q4b">Was würdest du nie wählen, wenn du allein wärst?</label>
+          <textarea id="q4b" placeholder="Allein würde ich nicht ..."></textarea>
+
+          <label for="q4c">Wo passt du dich an, obwohl du es spürst?</label>
+          <textarea id="q4c" placeholder="Ich passe mich an bei ..."></textarea>
+        </div>
+
+        <button class="btn full" data-reflect="q4a,q4b,q4c" data-output="out4">Fremdes erkennen</button>
+        <div id="out4" class="mirror">Du bist nicht zu sensibel. Du bist zu lange still geblieben.</div>
+
+        <a href="#page-5" class="next">Weiter denken</a>
+      </div>
+    </section>
+
+    <section id="page-5" class="screen bg-face">
+      <div class="inner workbook-card">
+        <p class="progress">05 / 08</p>
         <h2>Der innere Kritiker.</h2>
-        <p class="body-text">
-          Gib ihm keinen Thron.
-          Gib ihm einen Namen.
-          Dann verliert er Macht.
+        <p class="lead">
+          Diese Stimme klingt sicher. Aber sie ist nicht neutral.
         </p>
 
-        <label for="criticName">Wie heißt die Stimme in deinem Kopf?</label>
-        <input id="criticName" type="text" placeholder="z. B. Günther, Drama-Queen, Kontrollchef ..." />
+        <div class="question-block">
+          <label for="criticName">Gib dieser Stimme einen Namen.</label>
+          <input id="criticName" type="text" placeholder="Kontrollchef, Drama-Queen, Günther ..." />
 
-        <button class="button full" id="criticButton">Entlarven</button>
-        <div id="criticOutput" class="output-box">Noch schweigt er. Verdächtig.</div>
+          <label for="q5a">Was behauptet diese Stimme über dich?</label>
+          <textarea id="q5a" placeholder="Sie behauptet ..."></textarea>
 
-        <a href="#page-7" class="next-link">Weiter</a>
+          <label for="q5b">Wann wird sie am lautesten?</label>
+          <textarea id="q5b" placeholder="Sie wird laut, wenn ..."></textarea>
+        </div>
+
+        <button class="btn full" id="criticButton">Entmachten</button>
+        <div id="out5" class="mirror">Noch hat diese Stimme keinen Namen. Deshalb wirkt sie größer, als sie ist.</div>
+
+        <a href="#page-6" class="next">Weiter denken</a>
       </div>
     </section>
 
-    <section id="page-7" class="workbook-screen stairs-soft-screen">
-      <div class="content narrow">
-        <p class="page-number">04</p>
-        <h2>Selbstakzeptanz ist kein Sofa.</h2>
-        <p class="body-text">
-          Sie ist kein Ausruhen.
-          Sie ist ein Aufhören, dich ständig zu verraten.
+    <section id="page-6" class="screen bg-stairs dark">
+      <div class="inner workbook-card">
+        <p class="progress">06 / 08</p>
+        <h2>Was vermeidest du?</h2>
+        <p class="lead">
+          Du weißt es längst. Du weichst nur an der Stelle aus, an der es ehrlich werden würde.
         </p>
-        <p class="quote">
-          „Ich muss nicht perfekt sein, um mir nicht länger weh zu tun.“
-        </p>
-        <a href="#page-8" class="button">Zum Abschluss</a>
+
+        <div class="question-block">
+          <label for="q6a">Was willst du gerade nicht zu Ende denken?</label>
+          <textarea id="q6a" placeholder="Ich will nicht zu Ende denken ..."></textarea>
+
+          <label for="q6b">Welche Entscheidung verschiebst du?</label>
+          <textarea id="q6b" placeholder="Ich verschiebe ..."></textarea>
+
+          <label for="q6c">Was würde sich ändern, wenn du ehrlich wärst?</label>
+          <textarea id="q6c" placeholder="Dann würde sich ändern ..."></textarea>
+        </div>
+
+        <button class="btn full" data-reflect="q6a,q6b,q6c" data-output="out6">Nicht mehr ausweichen</button>
+        <div id="out6" class="mirror">Du brauchst keine neue Antwort. Du brauchst den Moment, in dem du dir glaubst.</div>
+
+        <a href="#page-7" class="next">Weiter denken</a>
       </div>
     </section>
 
-    <section id="page-8" class="workbook-screen final-screen">
-      <div class="content cta-card">
-        <p class="eyebrow">Abschluss</p>
-        <h2>Was nimmst du mit?</h2>
-        <p class="body-text">
-          Nicht alles muss sofort gelöst werden.
-          Manche Dinge verändern sich, sobald du aufhörst, sie gegen dich zu verwenden.
+    <section id="page-7" class="screen bg-hero soft">
+      <div class="inner workbook-card">
+        <p class="progress">07 / 08</p>
+        <h2>Was brauchst du wirklich?</h2>
+        <p class="lead">
+          Nicht mehr Disziplin. Nicht mehr Motivation. Vielleicht nur weniger Lärm.
         </p>
 
-        <label for="takeawayInput">Ein Satz für dich</label>
-        <textarea id="takeawayInput" placeholder="Heute nehme ich mit ..."></textarea>
+        <div class="question-block">
+          <label for="q7a">Was würde dich heute wirklich entlasten?</label>
+          <textarea id="q7a" placeholder="Entlasten würde mich ..."></textarea>
 
-        <button class="button full" id="saveButton">Mein Satz</button>
-        <div id="takeawayOutput" class="output-box">Hier erscheint dein Abschluss-Satz.</div>
+          <label for="q7b">Was brauchst du heute — nicht irgendwann?</label>
+          <textarea id="q7b" placeholder="Heute brauche ich ..."></textarea>
 
-        <a href="https://newwomanintheshop.com" class="button shop-button">Mehr von RE:BELLE™</a>
+          <label for="q7c">Was lässt sich sofort vereinfachen?</label>
+          <textarea id="q7c" placeholder="Vereinfachen kann ich ..."></textarea>
+        </div>
+
+        <button class="btn full" data-reflect="q7a,q7b,q7c" data-output="out7">Klarheit sehen</button>
+        <div id="out7" class="mirror">Klarheit ist leise. Aber sie trägt.</div>
+
+        <a href="#page-8" class="next">Zum Abschluss</a>
+      </div>
+    </section>
+
+    <section id="page-8" class="screen final bg-face">
+      <div class="inner workbook-card">
+        <p class="progress">08 / 08</p>
+        <h2>Ein Satz, der bleibt.</h2>
+        <p class="lead">
+          Schreib einen Satz, der ehrlich genug ist, dass du ihn nicht ignorieren kannst.
+        </p>
+
+        <div class="question-block">
+          <label for="finalSentence">Dein Satz</label>
+          <textarea id="finalSentence" placeholder="Ab heute ..."></textarea>
+        </div>
+
+        <button class="btn full" id="finalButton">Satz setzen</button>
+        <div id="out8" class="mirror">Das ist kein Ende. Das ist der Punkt, an dem du nicht mehr wegsehen kannst.</div>
+
+        <a href="#start" class="next">Noch einmal beginnen</a>
       </div>
     </section>
 

@@ -1,106 +1,103 @@
-const clarityInput = document.getElementById("clarityInput");
-const clarityButton = document.getElementById("clarityButton");
-const clarityOutput = document.getElementById("clarityOutput");
-
-const faceButton = document.getElementById("faceButton");
-const faceOutput = document.getElementById("faceOutput");
-
-const promptCards = document.querySelectorAll(".prompt-card");
-const promptOutput = document.getElementById("promptOutput");
-
-const criticName = document.getElementById("criticName");
+const reflectionButtons = document.querySelectorAll("[data-reflect]");
 const criticButton = document.getElementById("criticButton");
-const criticOutput = document.getElementById("criticOutput");
+const finalButton = document.getElementById("finalButton");
 
-const takeawayInput = document.getElementById("takeawayInput");
-const saveButton = document.getElementById("saveButton");
-const takeawayOutput = document.getElementById("takeawayOutput");
-
-function getClarityResponse(text) {
-  const value = text.toLowerCase().trim();
-
-  if (!value) {
-    return "Du weichst noch aus. Schreib den ersten ehrlichen Satz. Nicht den schönen.";
-  }
-
-  if (value.length < 18) {
-    return "Das ist noch Oberfläche. Nicht falsch. Nur noch nicht ehrlich genug.";
-  }
-
-  if (
-    value.includes("stress") ||
-    value.includes("zu viel") ||
-    value.includes("überfordert") ||
-    value.includes("müde") ||
-    value.includes("erschöpft")
-  ) {
-    return "Du bist nicht schwach. Du bist überladen. Der nächste Schritt ist nicht mehr Disziplin. Es ist Entlastung.";
-  }
-
-  if (
-    value.includes("angst") ||
-    value.includes("sorge") ||
-    value.includes("unsicher")
-  ) {
-    return "Deine Angst will dich nicht zerstören. Sie will gesehen werden. Aber sie darf nicht mehr allein entscheiden.";
-  }
-
-  if (
-    value.includes("perfekt") ||
-    value.includes("fehler") ||
-    value.includes("nicht gut genug")
-  ) {
-    return "Perfektion ist oft nur Angst in Abendgarderobe. Zieh ihr die Maske aus.";
-  }
-
-  if (
-    value.includes("wut") ||
-    value.includes("sauer") ||
-    value.includes("genervt")
-  ) {
-    return "Deine Wut ist nicht das Problem. Sie zeigt nur, wo du dich zu lange übergangen hast.";
-  }
-
-  return "Du weißt es wahrscheinlich schon. Du brauchst gerade keine Antwort. Du brauchst den Mut, dir selbst zu glauben.";
+function collectValues(ids) {
+  return ids
+    .split(",")
+    .map((id) => document.getElementById(id)?.value.trim())
+    .filter(Boolean);
 }
 
-clarityButton.addEventListener("click", () => {
-  clarityOutput.textContent = getClarityResponse(clarityInput.value);
-});
+function buildReflection(values, fallback) {
+  if (values.length === 0) {
+    return "Noch nichts geschrieben. Vielleicht ist genau das dein Anfang: Du weichst noch aus.";
+  }
 
-faceButton.addEventListener("click", () => {
-  faceOutput.classList.remove("hidden");
-  faceOutput.textContent = "Du hast es die ganze Zeit gewusst. Du hast es nur leiser gemacht.";
-});
+  const joined = values.join(" ").toLowerCase();
 
-promptCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    promptCards.forEach((item) => item.classList.remove("active"));
-    card.classList.add("active");
-    promptOutput.textContent = card.dataset.answer;
+  if (joined.length < 35) {
+    return "Das ist noch Oberfläche. Nicht falsch. Nur noch nicht ehrlich genug. Schreib einen Satz, den du nicht hübsch machen musst.";
+  }
+
+  if (
+    joined.includes("muss") ||
+    joined.includes("sollte") ||
+    joined.includes("erwarten") ||
+    joined.includes("alle")
+  ) {
+    return "Da steckt Pflicht drin. Vielleicht sogar eine, die du nie bewusst gewählt hast.";
+  }
+
+  if (
+    joined.includes("angst") ||
+    joined.includes("sorge") ||
+    joined.includes("unsicher")
+  ) {
+    return "Da spricht Angst mit. Sie darf da sein. Aber sie muss nicht die Regie übernehmen.";
+  }
+
+  if (
+    joined.includes("müde") ||
+    joined.includes("erschöpft") ||
+    joined.includes("überfordert") ||
+    joined.includes("zu viel")
+  ) {
+    return "Du brauchst nicht noch mehr Stärke. Du brauchst weniger Last.";
+  }
+
+  if (
+    joined.includes("wut") ||
+    joined.includes("sauer") ||
+    joined.includes("genervt")
+  ) {
+    return "Deine Wut ist kein Fehler. Sie zeigt, wo du dich zu lange übergangen hast.";
+  }
+
+  return fallback;
+}
+
+reflectionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const ids = button.dataset.reflect;
+    const outputId = button.dataset.output;
+    const output = document.getElementById(outputId);
+    const fallback = output.textContent;
+
+    const values = collectValues(ids);
+    output.textContent = buildReflection(values, fallback);
   });
 });
 
 criticButton.addEventListener("click", () => {
-  const name = criticName.value.trim();
+  const name = document.getElementById("criticName").value.trim();
+  const claim = document.getElementById("q5a").value.trim();
+  const loudMoment = document.getElementById("q5b").value.trim();
+  const output = document.getElementById("out5");
+
+  if (!name && !claim && !loudMoment) {
+    output.textContent = "Diese Stimme bleibt groß, solange sie namenlos bleibt. Fang mit einem Namen an.";
+    return;
+  }
 
   if (!name) {
-    criticOutput.textContent = "Gib der Stimme einen Namen. Namen machen Monster kleiner.";
+    output.textContent = "Du hast erkannt, was sie sagt. Jetzt gib ihr einen Namen. Namen machen Monster kleiner.";
     return;
   }
 
-  criticOutput.textContent =
-    name + " darf reden. Aber " + name + " führt nicht mehr dein Leben.";
+  output.textContent =
+    name + " darf auftauchen. Aber " + name + " ist nicht dein inneres Gesetz. Nur eine Stimme. Nicht die Wahrheit.";
 });
 
-saveButton.addEventListener("click", () => {
-  const takeaway = takeawayInput.value.trim();
+finalButton.addEventListener("click", () => {
+  const sentence = document.getElementById("finalSentence").value.trim();
+  const output = document.getElementById("out8");
 
-  if (!takeaway) {
-    takeawayOutput.textContent = "Noch nichts. Vielleicht ist dein erster Satz: Ich darf langsamer ehrlich werden.";
+  if (!sentence) {
+    output.textContent = "Noch kein Satz. Vielleicht beginnt er so: Ich darf aufhören, mich selbst zu übergehen.";
     return;
   }
 
-  takeawayOutput.textContent =
-    "Dein Satz steht. Nicht als Lösung. Als Anfang: „" + takeaway + "“";
+  output.textContent =
+    "Dein Satz steht: „" + sentence + "“ — nicht als Lösung. Als Anfang.";
 });
