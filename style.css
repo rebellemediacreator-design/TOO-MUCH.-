@@ -16,7 +16,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -40,7 +39,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 22px;
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(0, 0, 0, 0.38);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
@@ -60,12 +59,16 @@ a {
 
 .site-header nav a {
   opacity: 0.72;
+  transition: opacity 0.35s ease;
+}
+
+.site-header nav a:hover {
+  opacity: 1;
 }
 
 .workbook-screen {
   position: relative;
   min-height: 100vh;
-  scroll-snap-align: start;
   display: flex;
   align-items: center;
   padding: 92px 22px 52px;
@@ -75,14 +78,14 @@ a {
 .workbook-screen::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -4%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.52;
   filter: saturate(1.3) contrast(1.08);
   transform: scale(1.06);
-  animation: slowMove 22s ease-in-out infinite alternate;
+  animation: slowMove 26s ease-in-out infinite alternate;
 }
 
 .workbook-screen::after {
@@ -129,6 +132,7 @@ a {
   z-index: 2;
   width: 100%;
   max-width: 780px;
+  animation: softEnter 1.15s ease both;
 }
 
 .wide {
@@ -228,7 +232,7 @@ h2 {
   color: #fff;
   font-weight: 900;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+  transition: transform 0.35s ease, background 0.35s ease, border 0.35s ease;
 }
 
 .button:hover {
@@ -258,6 +262,11 @@ h2 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 800;
+  transition: color 0.35s ease, opacity 0.35s ease;
+}
+
+.next-link:hover {
+  color: var(--white);
 }
 
 label {
@@ -280,6 +289,13 @@ input {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   outline: none;
+  transition: border 0.35s ease, background 0.35s ease;
+}
+
+textarea:focus,
+input:focus {
+  border-color: rgba(226, 27, 27, 0.72);
+  background: rgba(0, 0, 0, 0.68);
 }
 
 textarea {
@@ -329,7 +345,7 @@ input::placeholder {
   letter-spacing: -0.05em;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
 }
 
 .prompt-card:hover,
@@ -359,6 +375,18 @@ input::placeholder {
 
   to {
     transform: scale(1.14) translate(-24px, 16px);
+  }
+}
+
+@keyframes softEnter {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -393,5 +421,20 @@ input::placeholder {
   .card,
   .cta-card {
     padding: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .workbook-screen::before,
+  .content {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
   }
 }
