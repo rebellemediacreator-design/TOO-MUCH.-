@@ -4,13 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>TOO MUCH. – Interaktives Selbsthilfe-Workbook | RE:BELLE™ Media</title>
-  <meta name="description" content="TOO MUCH. ist ein interaktives Selbsthilfe-Workbook für Gedanken, die zu laut wurden. Keine fachliche Hilfe. Nur ehrliche Selbstreflexion." />
+  <title>TOO MUCH. – Digitale App für mentale Klarheit | RE:BELLE™ Media</title>
+  <meta name="description" content="TOO MUCH. ist ein digitaler Denkraum mit 8 interaktiven Stationen für mentale Last, innere Unruhe und Gedanken, die zu laut geworden sind." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://too-much.rebellemedia.de/" />
 
-  <meta property="og:title" content="TOO MUCH. – Interaktives Selbsthilfe-Workbook" />
-  <meta property="og:description" content="Ein Denkraum für Gedanken, die du nicht mehr wegschiebst." />
+  <meta property="og:title" content="TOO MUCH. – Der digitale Denkraum" />
+  <meta property="og:description" content="8 interaktive Stationen für mentale Last, innere Unruhe und Gedanken, die du nicht mehr wegschiebst." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://quiet.rebellemedia.de/too-much" />
+  <meta property="og:url" content="https://too-much.rebellemedia.de/" />
+  <meta property="og:site_name" content="RE:BELLE™ Media" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TOO MUCH. – Der digitale Denkraum" />
+  <meta name="twitter:description" content="Keine Therapie. Keine Diagnose. Nur 8 Stationen, die dich kurz anhalten lassen." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,22 +28,34 @@
 
 <body>
   <header class="topbar">
-    <a href="#start" class="brand">RE:BELLE™ Media</a>
-    <span class="top-note">TOO MUCH.</span>
+    <a href="#start" class="brand" aria-label="Zurück zum Start">RE:BELLE™ Media</a>
+    <nav class="top-actions" aria-label="Schnellnavigation">
+      <a href="#page-1">Starten</a>
+      <button type="button" id="resetProgress" aria-label="Alle Eingaben löschen">Neu beginnen</button>
+    </nav>
   </header>
 
   <main>
-
     <section id="start" class="screen hero bg-hero">
       <div class="inner hero-inner">
-        <p class="kicker">Interaktives Selbsthilfe-Workbook</p>
+        <p class="kicker">Digitale App · Interaktives Workbook · Sofortzugang</p>
         <h1>TOO MUCH.</h1>
         <p class="claim">Ein Denkraum für Gedanken, die du nicht mehr wegschiebst.</p>
         <p class="intro">
-          Keine fachliche Hilfe. Keine Diagnose. Kein Coaching-Blabla.
+          8 stille Stationen für mentale Last, innere Unruhe und offene Enden.
+          Keine Therapie. Keine Diagnose. Kein Coaching-Blabla.
           Nur Fragen, die dich kurz anhalten lassen.
         </p>
-        <a href="#page-1" class="btn">Beginnen</a>
+
+        <div class="proof-row" aria-label="Produktinformationen">
+          <span>Browser-App</span>
+          <span>Keine Installation</span>
+          <span>Privat im Browser</span>
+          <span>Kein physisches Produkt</span>
+        </div>
+
+        <a href="#page-1" class="btn">Denkraum öffnen</a>
+        <p class="micro-note">Nutzbar auf Smartphone, Tablet und Desktop. In deinem Tempo. Nicht nebenbei.</p>
       </div>
     </section>
 
@@ -50,14 +69,14 @@
 
         <div class="question-block">
           <label for="q1a">Was ist der erste Satz, der in deinem Kopf auftaucht?</label>
-          <textarea id="q1a" placeholder="Ich merke gerade ..."></textarea>
+          <textarea id="q1a" placeholder="Ich merke gerade ..." autocomplete="off"></textarea>
 
           <label for="q1b">Was versuchst du dabei zu kontrollieren?</label>
-          <textarea id="q1b" placeholder="Ich versuche ..."></textarea>
+          <textarea id="q1b" placeholder="Ich versuche ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" data-reflect="q1a,q1b" data-output="out1">Spiegel öffnen</button>
-        <div id="out1" class="mirror">Dein Spiegel erscheint hier.</div>
+        <div id="out1" class="mirror" aria-live="polite">Dein Spiegel erscheint hier.</div>
 
         <a href="#page-2" class="next">Weiter denken</a>
       </div>
@@ -73,17 +92,17 @@
 
         <div class="question-block">
           <label for="q2a">Was denkst du gerade in Schleife?</label>
-          <textarea id="q2a" placeholder="Immer wieder denke ich ..."></textarea>
+          <textarea id="q2a" placeholder="Immer wieder denke ich ..." autocomplete="off"></textarea>
 
           <label for="q2b">Was davon ist wirklich relevant?</label>
-          <textarea id="q2b" placeholder="Wirklich wichtig ist ..."></textarea>
+          <textarea id="q2b" placeholder="Wirklich wichtig ist ..." autocomplete="off"></textarea>
 
           <label for="q2c">Was fühlt sich nur dringend an?</label>
-          <textarea id="q2c" placeholder="Nur dringend fühlt sich an ..."></textarea>
+          <textarea id="q2c" placeholder="Nur dringend fühlt sich an ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" data-reflect="q2a,q2b,q2c" data-output="out2">Den Kern sehen</button>
-        <div id="out2" class="mirror">Du bist nicht chaotisch. Du hältst nur zu viele offene Enden gleichzeitig.</div>
+        <div id="out2" class="mirror" aria-live="polite">Du bist nicht chaotisch. Du hältst nur zu viele offene Enden gleichzeitig.</div>
 
         <a href="#page-3" class="next">Weiter denken</a>
       </div>
@@ -99,17 +118,17 @@
 
         <div class="question-block">
           <label for="q3a">Was zieht gerade am meisten Energie?</label>
-          <textarea id="q3a" placeholder="Am meisten Energie zieht ..."></textarea>
+          <textarea id="q3a" placeholder="Am meisten Energie zieht ..." autocomplete="off"></textarea>
 
           <label for="q3b">Was würdest du sofort streichen, wenn niemand zuschaut?</label>
-          <textarea id="q3b" placeholder="Ich würde streichen ..."></textarea>
+          <textarea id="q3b" placeholder="Ich würde streichen ..." autocomplete="off"></textarea>
 
           <label for="q3c">Was lässt du stehen, obwohl du es längst hinterfragst?</label>
-          <textarea id="q3c" placeholder="Ich lasse noch stehen ..."></textarea>
+          <textarea id="q3c" placeholder="Ich lasse noch stehen ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" data-reflect="q3a,q3b,q3c" data-output="out3">Ehrlich werden</button>
-        <div id="out3" class="mirror">Du bist nicht überfordert. Du bist an den falschen Stellen noch zu loyal.</div>
+        <div id="out3" class="mirror" aria-live="polite">Du bist nicht überfordert. Du bist an den falschen Stellen noch zu loyal.</div>
 
         <a href="#page-4" class="next">Weiter denken</a>
       </div>
@@ -125,17 +144,17 @@
 
         <div class="question-block">
           <label for="q4a">Für wen hältst du gerade etwas aufrecht?</label>
-          <textarea id="q4a" placeholder="Ich halte gerade aufrecht ..."></textarea>
+          <textarea id="q4a" placeholder="Ich halte gerade aufrecht ..." autocomplete="off"></textarea>
 
           <label for="q4b">Was würdest du nie wählen, wenn du allein wärst?</label>
-          <textarea id="q4b" placeholder="Allein würde ich nicht ..."></textarea>
+          <textarea id="q4b" placeholder="Allein würde ich nicht ..." autocomplete="off"></textarea>
 
           <label for="q4c">Wo passt du dich an, obwohl du es spürst?</label>
-          <textarea id="q4c" placeholder="Ich passe mich an bei ..."></textarea>
+          <textarea id="q4c" placeholder="Ich passe mich an bei ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" data-reflect="q4a,q4b,q4c" data-output="out4">Fremdes erkennen</button>
-        <div id="out4" class="mirror">Du bist nicht zu sensibel. Du bist zu lange still geblieben.</div>
+        <div id="out4" class="mirror" aria-live="polite">Du bist nicht zu sensibel. Du bist zu lange still geblieben.</div>
 
         <a href="#page-5" class="next">Weiter denken</a>
       </div>
@@ -151,17 +170,17 @@
 
         <div class="question-block">
           <label for="criticName">Gib dieser Stimme einen Namen.</label>
-          <input id="criticName" type="text" placeholder="Kontrollchef, Drama-Queen, Günther ..." />
+          <input id="criticName" type="text" placeholder="Kontrollchef, Drama-Queen, Günther ..." autocomplete="off" />
 
           <label for="q5a">Was behauptet diese Stimme über dich?</label>
-          <textarea id="q5a" placeholder="Sie behauptet ..."></textarea>
+          <textarea id="q5a" placeholder="Sie behauptet ..." autocomplete="off"></textarea>
 
           <label for="q5b">Wann wird sie am lautesten?</label>
-          <textarea id="q5b" placeholder="Sie wird laut, wenn ..."></textarea>
+          <textarea id="q5b" placeholder="Sie wird laut, wenn ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" id="criticButton">Entmachten</button>
-        <div id="out5" class="mirror">Noch hat diese Stimme keinen Namen. Deshalb wirkt sie größer, als sie ist.</div>
+        <div id="out5" class="mirror" aria-live="polite">Noch hat diese Stimme keinen Namen. Deshalb wirkt sie größer, als sie ist.</div>
 
         <a href="#page-6" class="next">Weiter denken</a>
       </div>
@@ -177,17 +196,17 @@
 
         <div class="question-block">
           <label for="q6a">Was willst du gerade nicht zu Ende denken?</label>
-          <textarea id="q6a" placeholder="Ich will nicht zu Ende denken ..."></textarea>
+          <textarea id="q6a" placeholder="Ich will nicht zu Ende denken ..." autocomplete="off"></textarea>
 
           <label for="q6b">Welche Entscheidung verschiebst du?</label>
-          <textarea id="q6b" placeholder="Ich verschiebe ..."></textarea>
+          <textarea id="q6b" placeholder="Ich verschiebe ..." autocomplete="off"></textarea>
 
           <label for="q6c">Was würde sich ändern, wenn du ehrlich wärst?</label>
-          <textarea id="q6c" placeholder="Dann würde sich ändern ..."></textarea>
+          <textarea id="q6c" placeholder="Dann würde sich ändern ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" data-reflect="q6a,q6b,q6c" data-output="out6">Nicht mehr ausweichen</button>
-        <div id="out6" class="mirror">Du brauchst keine neue Antwort. Du brauchst den Moment, in dem du dir glaubst.</div>
+        <div id="out6" class="mirror" aria-live="polite">Du brauchst keine neue Antwort. Du brauchst den Moment, in dem du dir glaubst.</div>
 
         <a href="#page-7" class="next">Weiter denken</a>
       </div>
@@ -203,17 +222,17 @@
 
         <div class="question-block">
           <label for="q7a">Was würde dich heute wirklich entlasten?</label>
-          <textarea id="q7a" placeholder="Entlasten würde mich ..."></textarea>
+          <textarea id="q7a" placeholder="Entlasten würde mich ..." autocomplete="off"></textarea>
 
           <label for="q7b">Was brauchst du heute — nicht irgendwann?</label>
-          <textarea id="q7b" placeholder="Heute brauche ich ..."></textarea>
+          <textarea id="q7b" placeholder="Heute brauche ich ..." autocomplete="off"></textarea>
 
           <label for="q7c">Was lässt sich sofort vereinfachen?</label>
-          <textarea id="q7c" placeholder="Vereinfachen kann ich ..."></textarea>
+          <textarea id="q7c" placeholder="Vereinfachen kann ich ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" data-reflect="q7a,q7b,q7c" data-output="out7">Klarheit sehen</button>
-        <div id="out7" class="mirror">Klarheit ist leise. Aber sie trägt.</div>
+        <div id="out7" class="mirror" aria-live="polite">Klarheit ist leise. Aber sie trägt.</div>
 
         <a href="#page-8" class="next">Zum Abschluss</a>
       </div>
@@ -229,22 +248,26 @@
 
         <div class="question-block">
           <label for="finalSentence">Dein Satz</label>
-          <textarea id="finalSentence" placeholder="Ab heute ..."></textarea>
+          <textarea id="finalSentence" placeholder="Ab heute ..." autocomplete="off"></textarea>
         </div>
 
         <button class="btn full" id="finalButton">Satz setzen</button>
-        <div id="out8" class="mirror">Das ist kein Ende. Das ist der Punkt, an dem du nicht mehr wegsehen kannst.</div>
+        <div id="out8" class="mirror" aria-live="polite">Das ist kein Ende. Das ist der Punkt, an dem du nicht mehr wegsehen kannst.</div>
 
         <a href="#start" class="next">Noch einmal beginnen</a>
       </div>
     </section>
-
   </main>
 
   <footer class="footer">
-    <p>🖤 RE:BELLE™ Media</p>
+    <p><strong>🖤 RE:BELLE™ Media</strong></p>
     <p>The Art of Feeling. Amplified.</p>
     <p>Nicht alles ist sichtbar. Aber alles ist spürbar.</p>
+    <p class="legal">
+      TOO MUCH. ist ein digitales Reflexions-Workbook und ersetzt keine Therapie, Diagnose,
+      medizinische oder psychologische Beratung. Wenn du dich in einer akuten Krise befindest
+      oder professionelle Unterstützung brauchst, wende dich bitte an geeignete Fachstellen oder medizinisches Fachpersonal.
+    </p>
   </footer>
 
   <script src="script.js"></script>

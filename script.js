@@ -1,6 +1,9 @@
 const reflectionButtons = document.querySelectorAll("[data-reflect]");
 const criticButton = document.getElementById("criticButton");
 const finalButton = document.getElementById("finalButton");
+const resetProgress = document.getElementById("resetProgress");
+const inputs = document.querySelectorAll("textarea, input");
+const storageKey = "rebelle-too-much-state-v2";
 
 function collectValues(ids) {
   return ids
@@ -41,7 +44,8 @@ function buildReflection(values, fallback) {
     joined.includes("müde") ||
     joined.includes("erschöpft") ||
     joined.includes("überfordert") ||
-    joined.includes("zu viel")
+    joined.includes("zu viel") ||
+    joined.includes("zuviel")
   ) {
     return "Du brauchst nicht noch mehr Stärke. Du brauchst weniger Last.";
   }
@@ -54,8 +58,44 @@ function buildReflection(values, fallback) {
     return "Deine Wut ist kein Fehler. Sie zeigt, wo du dich zu lange übergangen hast.";
   }
 
+  if (
+    joined.includes("nicht mehr") ||
+    joined.includes("aufhören") ||
+    joined.includes("grenze") ||
+    joined.includes("nein")
+  ) {
+    return "Da ist eine Grenze. Vielleicht ist sie nicht neu. Vielleicht ist sie nur endlich hörbar.";
+  }
+
   return fallback;
 }
+
+function loadState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    inputs.forEach((field) => {
+      if (saved[field.id]) {
+        field.value = saved[field.id];
+      }
+    });
+  } catch (error) {
+    console.warn("TOO MUCH. konnte gespeicherte Eingaben nicht laden.", error);
+  }
+}
+
+function saveState() {
+  const data = {};
+  inputs.forEach((field) => {
+    if (field.id && field.value.trim()) {
+      data[field.id] = field.value;
+    }
+  });
+  localStorage.setItem(storageKey, JSON.stringify(data));
+}
+
+inputs.forEach((field) => {
+  field.addEventListener("input", saveState);
+});
 
 reflectionButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -66,38 +106,61 @@ reflectionButtons.forEach((button) => {
 
     const values = collectValues(ids);
     output.textContent = buildReflection(values, fallback);
+    saveState();
   });
 });
 
-criticButton.addEventListener("click", () => {
-  const name = document.getElementById("criticName").value.trim();
-  const claim = document.getElementById("q5a").value.trim();
-  const loudMoment = document.getElementById("q5b").value.trim();
-  const output = document.getElementById("out5");
+if (criticButton) {
+  criticButton.addEventListener("click", () => {
+    const name = document.getElementById("criticName").value.trim();
+    const claim = document.getElementById("q5a").value.trim();
+    const loudMoment = document.getElementById("q5b").value.trim();
+    const output = document.getElementById("out5");
 
-  if (!name && !claim && !loudMoment) {
-    output.textContent = "Diese Stimme bleibt groß, solange sie namenlos bleibt. Fang mit einem Namen an.";
-    return;
-  }
+    if (!name && !claim && !loudMoment) {
+      output.textContent = "Diese Stimme bleibt groß, solange sie namenlos bleibt. Fang mit einem Namen an.";
+      return;
+    }
 
-  if (!name) {
-    output.textContent = "Du hast erkannt, was sie sagt. Jetzt gib ihr einen Namen. Namen machen Monster kleiner.";
-    return;
-  }
+    if (!name) {
+      output.textContent = "Du hast erkannt, was sie sagt. Jetzt gib ihr einen Namen. Namen machen Monster kleiner.";
+      return;
+    }
 
-  output.textContent =
-    name + " darf auftauchen. Aber " + name + " ist nicht dein inneres Gesetz. Nur eine Stimme. Nicht die Wahrheit.";
-});
+    output.textContent =
+      name + " darf auftauchen. Aber " + name + " ist nicht dein inneres Gesetz. Nur eine Stimme. Nicht die Wahrheit.";
+    saveState();
+  });
+}
 
-finalButton.addEventListener("click", () => {
-  const sentence = document.getElementById("finalSentence").value.trim();
-  const output = document.getElementById("out8");
+if (finalButton) {
+  finalButton.addEventListener("click", () => {
+    const sentence = document.getElementById("finalSentence").value.trim();
+    const output = document.getElementById("out8");
 
-  if (!sentence) {
-    output.textContent = "Noch kein Satz. Vielleicht beginnt er so: Ich darf aufhören, mich selbst zu übergehen.";
-    return;
-  }
+    if (!sentence) {
+      output.textContent = "Noch kein Satz. Vielleicht beginnt er so: Ich darf aufhören, mich selbst zu übergehen.";
+      return;
+    }
 
-  output.textContent =
-    "Dein Satz steht: „" + sentence + "“ — nicht als Lösung. Als Anfang.";
-});
+    output.textContent =
+      "Dein Satz steht: „" + sentence + "“ — nicht als Lösung. Als Anfang.";
+    saveState();
+  });
+}
+
+if (resetProgress) {
+  resetProgress.addEventListener("click", () => {
+    const confirmed = window.confirm("Alle Eingaben in TOO MUCH. löschen und neu beginnen?");
+    if (!confirmed) return;
+
+    localStorage.removeItem(storageKey);
+    inputs.forEach((field) => {
+      field.value = "";
+    });
+
+    window.location.hash = "#start";
+  });
+}
+
+loadState();
